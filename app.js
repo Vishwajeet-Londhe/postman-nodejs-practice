@@ -13,4 +13,16 @@ app.put('/checkAPI', function(req, res){
     res.send('Hello API put method');
 })
 
+app.patch('/checkAPI', function(req, res){
+    res.send('Hello API put method');
+})
+
+app.delete('/checkAPI', function(req, res){
+    res.send('Hello API put method');
+})
+
+app.head('/checkAPI', function(req, res){
+    res.send('Hello API put method');
+})
+
 app.listen(3000);
