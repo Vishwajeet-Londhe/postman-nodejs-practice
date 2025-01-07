@@ -38,7 +38,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/", function(req, res){
+app.get("/", function(req, res, next){
     try{
         res.send(hey);    
     }
