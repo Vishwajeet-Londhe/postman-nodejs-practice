@@ -39,7 +39,12 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req, res){
-    res.send(hey);
+    try{
+        res.send(hey);    
+    }
+    catch(err){
+        next(err);
+    }
 })
 
 app.get("/error", function(req, res){
@@ -49,7 +54,7 @@ app.get("/error", function(req, res){
 //error handler
 
 app.use((err,req, res, next) => {
-    res.status(500).send("Something wrong !");
+    res.status(500).send(err.message);
 })
 
 app.listen(3000);
