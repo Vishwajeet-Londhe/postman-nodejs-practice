@@ -38,8 +38,12 @@
 const express = require("express");
 const app = express();
 
-app.fat("/", function(req, res){
-    res.send("he ram");
+app.get("/", function(req, res){
+    res.send(hey);
+})
+
+app.get("/error", function(req, res){
+    res.send("low level error");
 })
 
 app.listen(3000);
