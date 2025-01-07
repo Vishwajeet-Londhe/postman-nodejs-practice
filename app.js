@@ -46,4 +46,10 @@ app.get("/error", function(req, res){
     res.send("low level error");
 })
 
+//error handler
+
+app.use((err,req, res, next) => {
+    res.status(500).send("Something wrong !");
+})
+
 app.listen(3000);
