@@ -83,4 +83,9 @@ app.post("/data/:number",function(req, res){
     res.send(data);
 })
 
+app.get("/no/:number",function(req, res){
+    data.push(parseInt(req.params.number));
+    res.send(data);
+})
+
 app.listen(3000);
