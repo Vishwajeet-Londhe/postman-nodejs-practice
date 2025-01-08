@@ -74,8 +74,12 @@ app.get("/", function(req, res){
     res.send("hello")
 })
 
-app.get("/number",function(req, res){
+app.get("/data",function(req, res){
     res.send(data)
+})
+
+app.post("/data/:number",function(req, res){
+    res.send("chal raha hai")
 })
 
 app.listen(3000);
