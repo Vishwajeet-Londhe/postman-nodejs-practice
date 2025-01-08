@@ -68,8 +68,14 @@
 const express = require("express");
 const app = express();
 
+var data = [14,15,16,17,18,19,20,21,22];
+
 app.get("/", function(req, res){
     res.send("hello")
+})
+
+app.get("/number",function(req, res){
+    res.send(data)
 })
 
 app.listen(3000);
