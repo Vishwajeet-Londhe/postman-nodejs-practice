@@ -79,7 +79,7 @@ app.get("/data",function(req, res){
 })
 
 app.post("/data/:number",function(req, res){
-    res.send("chal raha hai")
+    console.log(typeof req.params.number);
 })
 
 app.listen(3000);
