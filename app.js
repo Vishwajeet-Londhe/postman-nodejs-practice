@@ -79,7 +79,8 @@ app.get("/data",function(req, res){
 })
 
 app.post("/data/:number",function(req, res){
-    console.log(typeof req.params.number);
+    data.push(parseInt(req.params.number));
+    res.send(data);
 })
 
 app.listen(3000);
