@@ -74,8 +74,8 @@ app.get("/", function(req, res){
     res.send("hello")
 })
 
-app.get("/data",function(req, res){
-    res.send(data)
+app.get("/data/mob/male/akki",function(req, res){
+    res.send("ho gaya")
 })
 
 app.post("/data/:number",function(req, res){
