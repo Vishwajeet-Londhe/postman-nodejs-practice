@@ -200,7 +200,7 @@ app.get("/", function(req, res, next){
 });
 
 app.get("/update",async function(req, res, next){
-    let user  = await userModel.findOneAndUpdate({name:"manji"},{username:"manji_0104"});
+    let user  = await userModel.findOneAndUpdate({name:"manji"},{username:"manji_0104"}, {next:true});
     console.log("updated data")
     res.send(user);
 });
