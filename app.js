@@ -190,6 +190,28 @@
 
 //updating data in MongoDB
 
+// const express = require("express");
+// const app = express();
+// const mongooseconnection = require("./config/mongoose");
+// const userModel = require("./models/user");
+
+// app.get("/", function(req, res, next){
+//     res.send("hello");
+// });
+
+// app.get("/update",async function(req, res, next){
+//     let user  = await userModel.findOneAndUpdate({name:"vishwajeet"},{name:"vishwajeet londhe"}, {new:true});
+//     console.log("updated data")
+//     res.send(user);
+// });
+
+// app.listen(3000);
+
+
+
+
+//deleting data
+
 const express = require("express");
 const app = express();
 const mongooseconnection = require("./config/mongoose");
@@ -199,9 +221,9 @@ app.get("/", function(req, res, next){
     res.send("hello");
 });
 
-app.get("/update",async function(req, res, next){
-    let user  = await userModel.findOneAndUpdate({name:"vishwajeet"},{name:"vishwajeet londhe"}, {new:true});
-    console.log("updated data")
+app.get("/delete",async function(req, res, next){
+    let user  = await userModel.findOneAndDelete({name:"manjiree"});
+    console.log("deleted data");
     res.send(user);
 });
 
