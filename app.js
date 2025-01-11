@@ -146,8 +146,27 @@
 // app.listen(3000);
 
 
-//reading data
+//reading data from one thing
 
+// const express = require("express");
+// const app = express();
+// const mongooseconnection = require("./config/mongoose");
+// const userModel = require("./models/user");
+
+// app.get("/", function(req, res, next){
+//     res.send("hello");
+// });
+
+// app.get("/read",async function(req, res, next){
+//     let user  = await userModel.findOne({name:"vishwajeet"});
+//     console.log("read data")
+//     res.send(user);
+// });
+
+// app.listen(3000);
+
+
+//reading data all data
 const express = require("express");
 const app = express();
 const mongooseconnection = require("./config/mongoose");
@@ -158,9 +177,9 @@ app.get("/", function(req, res, next){
 });
 
 app.get("/read",async function(req, res, next){
-    let user  = await userModel.findOne({name:"vishwajeet"});
+    let users  = await userModel.find();
     console.log("read data")
-    res.send(user);
+    res.send(users);
 });
 
 app.listen(3000);
