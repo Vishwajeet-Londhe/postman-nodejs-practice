@@ -93,17 +93,27 @@
 
 
 //mongoDB Atlas
-const express = require('express');
+// const express = require('express');
+// const app = express();
+// const mongoose = require("mongoose");
+
+// mongoose.connect("mongodb+srv://vishwajeetlondhe51:NBCnYofPysPjAMOz@cluster0.s7kis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+// .then(function(){
+//     console.log("connected to database");
+// });
+
+// app.get("/", function(req, res, next){
+//     res.send("hell");
+// });
+
+// app.listen(3000);
+
+
+const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://vishwajeetlondhe51:NBCnYofPysPjAMOz@cluster0.s7kis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-.then(function(){
-    console.log("connected to database");
-});
+const mongooseconnection = require("./config/mongoose");
 
-app.get("/", function(req, res, next){
-    res.send("hell");
-});
+app.get("/", function(req, res, next){});
 
 app.listen(3000);
