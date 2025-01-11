@@ -65,27 +65,45 @@
 
 //postman with routes
 
-const express = require("express");
+// const express = require("express");
+// const app = express();
+
+// var data = [14,15,16,17,18,19,20,21,22];
+
+// app.get("/", function(req, res){
+//     res.send("hello")
+// })
+
+// app.get("/data/mob/male/akki",function(req, res){
+//     res.send("ho gaya")
+// })
+
+// app.post("/data/:number",function(req, res){
+//     data.push(parseInt(req.params.number));
+//     res.send(data);
+// })
+
+// app.get("/no/:number",function(req, res){
+//     data.push(parseInt(req.params.number));
+//     res.send(data);
+// })
+
+// app.listen(3000);
+
+
+
+//mongoDB Atlas
+const express = require('express');
 const app = express();
+const mongoose = require("mongoose");
 
-var data = [14,15,16,17,18,19,20,21,22];
+mongoose.connect("mongodb+srv://vishwajeetlondhe51:NBCnYofPysPjAMOz@cluster0.s7kis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+.then(function(){
+    console.log("connected to database");
+});
 
-app.get("/", function(req, res){
-    res.send("hello")
-})
-
-app.get("/data/mob/male/akki",function(req, res){
-    res.send("ho gaya")
-})
-
-app.post("/data/:number",function(req, res){
-    data.push(parseInt(req.params.number));
-    res.send(data);
-})
-
-app.get("/no/:number",function(req, res){
-    data.push(parseInt(req.params.number));
-    res.send(data);
-})
+app.get("/", function(req, res, next){
+    res.send("hell");
+});
 
 app.listen(3000);
