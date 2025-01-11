@@ -108,7 +108,46 @@
 
 // app.listen(3000);
 
+
+
 //mongoDB crating user
+
+// const express = require("express");
+// const app = express();
+// const mongooseconnection = require("./config/mongoose");
+// const userModel = require("./models/user");
+
+// app.get("/", function(req, res, next){
+//     res.send("hello");
+// });
+
+// app.get("/create",async function(req, res, next){
+//     let createuser = await userModel.create({
+//         username: "vishwajeet_0104",
+//         name: "vishwajeet",
+//         email: "vishwajeet@gmail.com",
+//         password: "abc123"
+//     });
+//     console.log("user created");
+//     res.send(createuser);
+// });
+
+// app.get("/fav",async function(req, res, next){
+//     let createuser = await userModel.create({
+//         username: "fav123",
+//         name: "manji",
+//         email: "manji@gmail.com",
+//         password: "abc123"
+//     });
+//     console.log("user created fav");
+//     res.send(createuser);
+// });
+
+// app.listen(3000);
+
+
+//reading data
+
 const express = require("express");
 const app = express();
 const mongooseconnection = require("./config/mongoose");
@@ -118,26 +157,10 @@ app.get("/", function(req, res, next){
     res.send("hello");
 });
 
-app.get("/create",async function(req, res, next){
-    let createuser = await userModel.create({
-        username: "vishwajeet_0104",
-        name: "vishwajeet",
-        email: "vishwajeet@gmail.com",
-        password: "abc123"
-    });
-    console.log("user created");
-    res.send(createuser);
-});
-
-app.get("/fav",async function(req, res, next){
-    let createuser = await userModel.create({
-        username: "fav123",
-        name: "manji",
-        email: "manji@gmail.com",
-        password: "abc123"
-    });
-    console.log("user created fav");
-    res.send(createuser);
+app.get("/read",async function(req, res, next){
+    let user  = await userModel.findOne({name:"vishwajeet"});
+    console.log("read data")
+    res.send(user);
 });
 
 app.listen(3000);
