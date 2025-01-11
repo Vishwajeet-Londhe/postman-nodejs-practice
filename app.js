@@ -108,10 +108,9 @@
 
 // app.listen(3000);
 
-
+//mongoDB crating user
 const express = require("express");
 const app = express();
-
 const mongooseconnection = require("./config/mongoose");
 const userModel = require("./models/user");
 
@@ -127,6 +126,17 @@ app.get("/create",async function(req, res, next){
         password: "abc123"
     });
     console.log("user created");
+    res.send(createuser);
+});
+
+app.get("/fav",async function(req, res, next){
+    let createuser = await userModel.create({
+        username: "fav123",
+        name: "manji",
+        email: "manji@gmail.com",
+        password: "abc123"
+    });
+    console.log("user created fav");
     res.send(createuser);
 });
 
