@@ -166,7 +166,30 @@
 // app.listen(3000);
 
 
+
 //reading data all data
+
+// const express = require("express");
+// const app = express();
+// const mongooseconnection = require("./config/mongoose");
+// const userModel = require("./models/user");
+
+// app.get("/", function(req, res, next){
+//     res.send("hello");
+// });
+
+// app.get("/read",async function(req, res, next){
+//     let users  = await userModel.find();
+//     console.log("read data")
+//     res.send(users);
+// });
+
+// app.listen(3000);
+
+
+
+//updating data in MongoDB
+
 const express = require("express");
 const app = express();
 const mongooseconnection = require("./config/mongoose");
@@ -176,10 +199,10 @@ app.get("/", function(req, res, next){
     res.send("hello");
 });
 
-app.get("/read",async function(req, res, next){
-    let users  = await userModel.find();
-    console.log("read data")
-    res.send(users);
+app.get("/update",async function(req, res, next){
+    let user  = await userModel.findOneAndUpdate({name:"manji"},{username:"manji_0104"});
+    console.log("updated data")
+    res.send(user);
 });
 
 app.listen(3000);
