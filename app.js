@@ -286,4 +286,9 @@ app.get("/read",async function(req,res, next){
     res.send(users);        
 })
 
+app.get("/read/:username",async function(req,res, next){
+    let user = await userModel.findOne({username : req.params.username});
+    res.send(user);        
+})
+
 app.listen(3000);
