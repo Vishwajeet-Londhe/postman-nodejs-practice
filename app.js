@@ -231,7 +231,30 @@
 
 
 
-//postman
+//postman data created on body
+
+// const express = require("express");
+// const app = express();
+// const mongooseconnection = require('./config/mongoose');
+// const userModel = require('./models/user');
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// app.get("/", function(req,res, next){
+//     res.send("hello");
+// })
+
+// app.post("/create", function(req,res, next){
+//     res.send(req.body);
+// })
+
+// app.listen(3000);
+
+
+
+
+// postman user created
 
 const express = require("express");
 const app = express();
@@ -245,8 +268,17 @@ app.get("/", function(req,res, next){
     res.send("hello");
 })
 
-app.post("/create", function(req,res, next){
-    res.send(req.body);
+app.post("/create",async function(req,res, next){
+    let {name,username,email,pass} = (req.body);
+
+    let createduser = await userModel.create ({
+        name,
+        username,
+        email,
+        pass
+    })
+
+    res.send(createduser);
 })
 
 app.listen(3000);
