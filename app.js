@@ -212,19 +212,41 @@
 
 //deleting data
 
+// const express = require("express");
+// const app = express();
+// const mongooseconnection = require("./config/mongoose");
+// const userModel = require("./models/user");
+
+// app.get("/", function(req, res, next){
+//     res.send("hello");
+// });
+
+// app.get("/delete",async function(req, res, next){
+//     let user  = await userModel.findOneAndDelete({name:"manjiree"});
+//     console.log("deleted data");
+//     res.send(user);
+// });
+
+// app.listen(3000);
+
+
+
+//postman
+
 const express = require("express");
 const app = express();
-const mongooseconnection = require("./config/mongoose");
-const userModel = require("./models/user");
+const mongooseconnection = require('./config/mongoose');
+const userModel = require('./models/user');
 
-app.get("/", function(req, res, next){
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get("/", function(req,res, next){
     res.send("hello");
-});
+})
 
-app.get("/delete",async function(req, res, next){
-    let user  = await userModel.findOneAndDelete({name:"manjiree"});
-    console.log("deleted data");
-    res.send(user);
-});
+app.post("/create", function(req,res, next){
+    res.send(req.body);
+})
 
 app.listen(3000);
