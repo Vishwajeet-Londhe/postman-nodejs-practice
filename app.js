@@ -297,4 +297,9 @@ app.get("/update/:username",async function(req,res, next){
     res.send(newuser);
 })
 
+app.get("/delete/:username",async function(req,res, next){    
+    let deleteduser = await userModel.findOneAndDelete({username : req.params.username});
+    res.send(deleteduser);
+})
+
 app.listen(3000);
