@@ -269,14 +269,14 @@ app.get("/", function(req,res, next){
 })
 
 app.post("/create",async function(req,res, next){
-    let {name,username,email,pass} = (req.body);
+    let {name,username,email,password} = (req.body);
 
     let createduser = await userModel.create ({
         name,
         username,
         email,
-        pass
-    })
+        password,
+    });
 
     res.send(createduser);
 })
@@ -289,6 +289,12 @@ app.get("/read",async function(req,res, next){
 app.get("/read/:username",async function(req,res, next){
     let user = await userModel.findOne({username : req.params.username});
     res.send(user);        
+})
+
+app.get("/update/:username",async function(req,res, next){
+    let {name, username, email} = req.body;
+    let newuser = await userModel.findOneAndUpdate({username : req.params.username},{username, name, email}, {new: true});
+    res.send(newuser);
 })
 
 app.listen(3000);
